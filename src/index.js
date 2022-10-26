@@ -7,7 +7,7 @@ import logger from 'redux-logger';
 import App from './components/App/App';
 
 // Reducers
-const propety = (state = '', action) => {
+const property = (state = '', action) => {
   if (action.type === 'SET_PROPERTY') {
       return action.payload;
   } else if (action.type === 'CLEAR_ALL') {
@@ -20,7 +20,7 @@ const propety = (state = '', action) => {
 const storeInstance = createStore(
   combineReducers(
       {
-          name,
+          property,
           
       }
   ),
@@ -28,7 +28,7 @@ const storeInstance = createStore(
 );
 
 ReactDOM.render(
-  <Provider store={store}>
+  <Provider store={storeInstance}>
     <App />
   </Provider>,
   document.getElementById('react-root'),
