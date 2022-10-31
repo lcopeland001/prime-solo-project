@@ -1,7 +1,6 @@
 // Step 1: imports
 import { useSelector, useDispatch } from 'react-redux';
-// Use History Allows us to navigate to another page
-import { useHistory } from 'react-router-dom'; // useHistory import
+import { useHistory } from 'react-router-dom'; // Use History Allows us to navigate to another page
 
 const PropertyForm = () => {
     const history = useHistory(); // useHistory
@@ -21,6 +20,13 @@ const PropertyForm = () => {
         } else {
             alert ('Property Name is required.')
         }
+    }
+
+    const addProperty = event => {
+        event.preventDefault();
+        dispatch({ type: 'ADD_PLANT', payload: newProperty });
+        //updates the next plant to have a new id
+        setPlant({id:newPlant.id + 1, name: ''});
     }
 
     return (

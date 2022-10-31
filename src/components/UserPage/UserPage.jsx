@@ -15,6 +15,8 @@ function UserPage() {
     <div className="container">
       <h2>Welcome, {user.username}!</h2>
       <p>Your ID is: {user.id}</p>
+      <h3>Propertiies</h3>
+      
       <button onClick={addProperty} >Add Property</button>
       <LogOutButton className="btn" />
     </div>

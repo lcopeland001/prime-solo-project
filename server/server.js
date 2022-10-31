@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 require('dotenv').config();
+const property = require('./routes/property.router.js');
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
+app.use('/property', property)
 
 // Serve static files
 app.use(express.static('build'));

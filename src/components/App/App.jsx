@@ -19,6 +19,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import PropertyForm from '../Property Form/PropertyForm';
 
 import './App.css';
 
