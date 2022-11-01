@@ -19,7 +19,8 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import PropertyForm from '../Property Form/PropertyForm';
+import PropertyForm from '../PropertyForm/PropertyForm';
+import PropertyDetail from '../PropertyDetail/PropertyDetail';
 
 import './App.css';
 
@@ -110,6 +111,14 @@ function App() {
               <LandingPage />
             }
           </Route>
+
+          <Route path="/add" exact>
+          <PropertyForm />
+        </Route>
+
+        <Route exact path="/detail/:propertyId">
+          <PropertyDetail />
+        </Route>
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
