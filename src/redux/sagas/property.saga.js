@@ -5,10 +5,10 @@ import axios from 'axios';
 //rootSaga generator function
 
   function* propertySaga() {
-    yield takeEvery('EDIT_MOVIE', editProperty);
-    yield takeEvery('ADD_MOVIE', addProperty);
-    yield takeEvery('FETCH_MOVIES', fetchAllProperty);
-    yield takeEvery('FETCH_MOVIE_DETAILS', fetchPropertyDetails);
+    yield takeEvery('EDIT_PROPERTY', editProperty);
+    yield takeEvery('ADD_PROPERTY', addProperty);
+    yield takeEvery('FETCH_PROPERTY', fetchAllProperty);
+    yield takeEvery('FETCH_PROPERTY_DETAILS', fetchPropertyDetails);
   }
 
   // All sagas will go here for this project
@@ -26,6 +26,7 @@ import axios from 'axios';
 function* addProperty(action) {
     try {
         yield axios.post(`/api/property`, action.payload);
+        yield put({ type: 'FETCH_PROPERTY' });
         if (action.history) {
             // Redirect back to the property list
             action.history.push('/');

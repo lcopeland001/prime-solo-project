@@ -17,11 +17,11 @@ const PropertyForm = () => {
 
     useEffect(() => {
         if (id) { // Return false if id is undefined
-            axios.get(`/api/movie/${id}`).then(response => {
-                const movie = response.data;
-                setAddress(movie.title);
-                setPhoto(movie.description);
-                setOther(movie.poster);
+            axios.get(`/api/property/${id}`).then(response => {
+                const property = response.data;
+                setAddress(property.title);
+                setPhoto(property.description);
+                setOther(property.poster);
             }).catch(error => {
                 console.log(error);
                 alert('Something went wrong!');
@@ -49,17 +49,15 @@ const PropertyForm = () => {
 
     return (
         <>
-           
-            <h3>Property Form</h3>
             <div>
-            <h1>{id ? 'Edit Property' : 'Add Property' } </h1> 
-            <form onSubmit={submitForm}>
-                <p>Address: <input value={address} onChange={(e) => setAddress(e.target.value)} /></p>
-                <p>Photo: <input value={photo} onChange={(e) => setPhoto(e.target.value)}  /></p>
-                <p>Other: <input value={other} onChange={(e) => setOther(e.target.value)}  /></p>
-                <input type="submit" />
-            </form>
-        </div>
+                <h1>{id ? 'Edit Property' : 'Add Property' } </h1> 
+                <form onSubmit={submitForm}>
+                    <p>Address: <input value={address} onChange={(e) => setAddress(e.target.value)} /></p>
+                    <p>Photo: <input value={photo} onChange={(e) => setPhoto(e.target.value)}  /></p>
+                    <p>Notes: <input value={other} onChange={(e) => setOther(e.target.value)}  /></p>
+                    <input type="submit" />
+                </form>
+            </div>
         </>
     );
 }

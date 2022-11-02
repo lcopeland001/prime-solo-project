@@ -9,16 +9,15 @@ function PropertyDetail() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch({ type: 'FETCH_MOVIE_DETAILS', payload: propertyId });
+        dispatch({ type: 'FETCH_PROPERTY_DETAILS', payload: propertyId });
     }, [propertyId]);
 
     return (
         <div>
-            <h1>{propertyId}</h1>
-            <h3>{property.address}</h3>
+            <h1>{property.address}</h1>
             <img src={property.photo} alt={property.address} />
-            <Link to={`/edit/${property.id}`}>Edit</Link>
             <p>{property.other}</p>
+            <Link to={`/edit/${property.id}`}>Edit</Link>
         </div>
     )
 }

@@ -11,7 +11,7 @@ function UserPage() {
   const property = useSelector((store) => store.property)
   
   useEffect(() => {
-    dispatch({ type: 'GET_PROPERTY' });
+    dispatch({ type: 'FETCH_PROPERTY' });
 }, []);
 
 const displayProperty = (propertyToDisplay) => {

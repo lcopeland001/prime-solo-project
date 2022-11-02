@@ -116,6 +116,10 @@ function App() {
           <PropertyForm />
         </Route>
 
+        <Route path="/edit/:id" exact>
+          <PropertyForm />
+        </Route>
+
         <Route exact path="/detail/:propertyId">
           <PropertyDetail />
         </Route>
