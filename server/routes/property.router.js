@@ -49,10 +49,10 @@ router.put('/:id', (req, res) => {
 router.post('/', (req, res) => {
   console.log(req.body);
   const insertMovieQuery = `
-  INSERT INTO "property" ("address", "photo", "other")
-  VALUES ($1, $2, $3)
+  INSERT INTO "property" ("address", "photo", "other", "user_id")
+  VALUES ($1, $2, $3, $4)
   RETURNING "id";`
-pool.query(insertMovieQuery, [req.body.address, req.body.pphoto, req.body.other])
+pool.query(insertMovieQuery, [req.body.address, req.body.photo, req.body.other, req.user.id])
 .then(result => {
   console.log('New Property Id:', result.rows[0].id); //ID IS HERE!
   

@@ -2,6 +2,15 @@ import React, { useEffect } from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom';
+import AlignItemsList from '../AlignItemsList/AlignItemsList';
+
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import Divider from '@mui/material/Divider';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Avatar from '@mui/material/Avatar';
+import Typography from '@mui/material/Typography';
 
 function UserPage() {
   const dispatch = useDispatch();
@@ -25,7 +34,7 @@ const displayProperty = (propertyToDisplay) => {
 
       <h4>Properties</h4>
       
-      <section className="property">
+      {/* <section className="property">
             {property.map(property => {
                 return (
                     <div key={property.id} >
@@ -34,7 +43,37 @@ const displayProperty = (propertyToDisplay) => {
                     </div>
                 );
             })}
+      </section> */}
+
+      <section className="property">
+      <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+            {property.map(property => {
+                return (
+                  <>
+                    <ListItem alignItems="flex-start" onClick={(event) => displayProperty(property)} 
+                    sx={{'&:hover':{backgroundColor:'LightBlue', cursor:'pointer'}}}>
+                    <ListItemAvatar>
+                      <Avatar alt="Remy Sharp" src={property.photo} />
+                    </ListItemAvatar>
+                    <ListItemText
+                      primary={property.address}
+                      secondary={
+                        <React.Fragment>
+                          {property.other}
+                        </React.Fragment>
+                      }
+                    />
+                  </ListItem>
+                  <Divider variant="inset" component="li" />
+                  </>
+                );
+            })}
+         </List>   
       </section>
+
+      {/* <section>
+        <AlignItemsList />
+      </section> */}
       
       <Link to="/add">Add Property</Link>
 
