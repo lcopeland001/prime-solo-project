@@ -65,4 +65,29 @@ pool.query(insertMovieQuery, [req.body.address, req.body.photo, req.body.other, 
 })
 })
 
+// Delete Property
+
+// router.delete('/:id', (req, res) => {
+//   pool.query('DELETE FROM "property" WHERE id=$1', [req.params.id]).then((result) => {
+//       res.sendStatus(200);
+//   }).catch((error) => {
+//       console.log('Error DELETE Property', error);
+//       res.sendStatus(500);
+//   })
+// });
+
+router.delete('/:id', (req, res) => {
+  if (req.isAuthenticated()) {
+    const queryText = `DELETE FROM "property" WHERE "id" = $1 AND "user_id" = $2;`;
+    pool.query(queryText, [req.params.id, req.user.id]).then(() => {
+      res.sendStatus(200);
+    }).catch((error) => {
+      console.log(error in router);
+      res.sendStatus(500);
+    });
+  } else {
+    res.sendStatus(403); // forbidden
+  };
+});
+
 module.exports = router;

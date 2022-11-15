@@ -9,6 +9,7 @@ import axios from 'axios';
     yield takeEvery('ADD_PROPERTY', addProperty);
     yield takeEvery('FETCH_PROPERTY', fetchAllProperty);
     yield takeEvery('FETCH_PROPERTY_DETAILS', fetchPropertyDetails);
+    yield takeEvery('DELETE_PROPERTY', deleteProperty);
   }
 
   // All sagas will go here for this project
@@ -55,6 +56,17 @@ function* fetchAllProperty() {
         console.log('get all error');
     }
         
+}
+
+function* deleteProperty(action) {
+    try {
+        yield axios.delete(`/api/property/${action.payload}`);
+        // Dispatch an action to fetch elements
+        yield put({ type: 'DELETE_PROPERTY' });
+    } catch (error) {
+        console.log('Error deleting Property', error);
+        alert('Something went wrong.');
+    }
 }
 
   export default propertySaga

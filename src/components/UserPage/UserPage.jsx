@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom';
-import AlignItemsList from '../AlignItemsList/AlignItemsList';
 
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -34,16 +33,6 @@ const displayProperty = (propertyToDisplay) => {
 
       <h4>Properties</h4>
       
-      {/* <section className="property">
-            {property.map(property => {
-                return (
-                    <div key={property.id} >
-                        <h4>{property.address}</h4>
-                        <img onClick={(event) => displayProperty(property)} src={property.photo} alt={property.address}/>
-                    </div>
-                );
-            })}
-      </section> */}
 
       <section className="property">
       <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
@@ -53,7 +42,7 @@ const displayProperty = (propertyToDisplay) => {
                     <ListItem alignItems="flex-start" onClick={(event) => displayProperty(property)} 
                     sx={{'&:hover':{backgroundColor:'LightBlue', cursor:'pointer'}}}>
                     <ListItemAvatar>
-                      <Avatar alt="Remy Sharp" src={property.photo} />
+                      <Avatar alt="Home" src={property.photo} />
                     </ListItemAvatar>
                     <ListItemText
                       primary={property.address}
@@ -70,16 +59,9 @@ const displayProperty = (propertyToDisplay) => {
             })}
          </List>   
       </section>
-
-      {/* <section>
-        <AlignItemsList />
-      </section> */}
       
       <Link to="/add">Add Property</Link>
 
-      <br />
-
-      {/* <LogOutButton className="btn" /> */}
     </div>
   );
 }
