@@ -62,7 +62,7 @@ function* deleteProperty(action) {
     try {
         yield axios.delete(`/api/property/${action.payload}`);
         // Dispatch an action to fetch elements
-        yield put({ type: 'DELETE_PROPERTY' });
+        yield put({ type: 'FETCH_PROPERTY' });
     } catch (error) {
         console.log('Error deleting Property', error);
         alert('Something went wrong.');

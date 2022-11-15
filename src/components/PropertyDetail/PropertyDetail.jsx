@@ -13,9 +13,9 @@ function PropertyDetail() {
     }, [propertyId]);
 
     const deleteProperty = () => {
-        dispatch({ type: 'DELETE_PROPERTY' });
+        dispatch({ type: 'FETCH_PROPERTY', payload: propertyId });
     }
-
+    
     return (
         <div>
             <h1>{property.address}</h1>
