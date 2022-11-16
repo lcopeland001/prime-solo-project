@@ -15,7 +15,7 @@ const property = (state = [], action) => {
   }
 }
 
-// selectedMovie = movieToDisplay;
+
 const selectedProperty = (state = {}, action) => {
   switch (action.type) {
       case 'SET_PROPERTY_DETAILS':
