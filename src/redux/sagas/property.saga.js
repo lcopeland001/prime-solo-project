@@ -32,7 +32,7 @@ function* addProperty(action) {
             // Redirect back to the property list
             action.history.push('/');
         }
-    } catch (e) {
+    }catch (e) {
         console.log(e);
     }
 }

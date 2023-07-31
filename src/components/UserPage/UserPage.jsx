@@ -20,7 +20,7 @@ function UserPage() {
   
   useEffect(() => {
     dispatch({ type: 'FETCH_PROPERTY' });
-}, []);
+  }, []);
 
 const displayProperty = (propertyToDisplay) => {
   history.push(`/detail/${propertyToDisplay.id}`);

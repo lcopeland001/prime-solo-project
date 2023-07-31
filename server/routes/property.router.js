@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
       res.send(result.rows);
     })
     .catch(err => {
-      console.log('ERROR: Get all movies', err);
+      console.log('ERROR: Get all ', err);
       res.sendStatus(500)
     })
 
@@ -26,7 +26,7 @@ router.get('/:id', (req, res) => {
       res.send(result.rows[0]);
     })
     .catch(err => {
-      console.log('ERROR: Get all movies', err);
+      console.log('ERROR: Get all ', err);
       res.sendStatus(500)
     })
 
