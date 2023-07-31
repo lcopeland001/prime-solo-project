@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom'; // Use History Allows us to navigate to another page
+// Use History Allows us to navigate to another page
+import { useHistory } from 'react-router-dom'; 
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
