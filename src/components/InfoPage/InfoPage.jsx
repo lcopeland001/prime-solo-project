@@ -9,13 +9,6 @@ function InfoPage() {
   return (
     <div className="container">
       <p>Info Page</p>
-      <h2>Technologies</h2>
-          <li> React</li>
-          <li> Redux</li>
-          <li> Express</li>
-          <li> Node JS</li>
-          <li> PostgreSQL</li>
-          <li> Material UI</li>
     </div>
   );
 }

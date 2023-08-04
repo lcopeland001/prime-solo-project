@@ -27,46 +27,41 @@ const displayProperty = (propertyToDisplay) => {
 }
   
   return (
-    <div>
-      <div>
+    <div className="container">
+      <h2>Property Aqisition Management</h2>
       <h3>Welcome, {user.username}!</h3>
-      </div>
 
-      <div className="container">
-        <h2>Property Acqisition Management</h2>
+      <h4>Properties</h4>
+      
 
-        <h3>Properties</h3>
-        
+      <section className="property">
+      <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+            {property.map(property => {
+                return (
+                  <>
+                    <ListItem alignItems="flex-start" onClick={(event) => displayProperty(property)} 
+                    sx={{'&:hover':{backgroundColor:'LightBlue', cursor:'pointer'}}}>
+                    <ListItemAvatar>
+                      <Avatar alt="Home" src={property.photo} />
+                    </ListItemAvatar>
+                    <ListItemText
+                      primary={property.address}
+                      secondary={
+                        <React.Fragment>
+                          {property.other}
+                        </React.Fragment>
+                      }
+                    />
+                  </ListItem>
+                  <Divider variant="inset" component="li" />
+                  </>
+                );
+            })}
+         </List>   
+      </section>
+      
+      <Link to="/add">Add Property</Link>
 
-        <section className="property">
-        <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-              {property.map(property => {
-                  return (
-                    <>
-                      <ListItem alignItems="flex-start" onClick={(event) => displayProperty(property)} 
-                      sx={{'&:hover':{backgroundColor:'LightBlue', cursor:'pointer'}}}>
-                      <ListItemAvatar>
-                        <Avatar alt="Home" src={property.photo} />
-                      </ListItemAvatar>
-                      <ListItemText
-                        primary={property.address}
-                        secondary={
-                          <React.Fragment>
-                            {property.other}
-                          </React.Fragment>
-                        }
-                      />
-                    </ListItem>
-                    <Divider variant="inset" component="li" />
-                    </>
-                  );
-              })}
-          </List>   
-        </section>
-        
-        <Link to="/add">Add Property</Link>
-
-      </div>
     </div>
   );
 }
